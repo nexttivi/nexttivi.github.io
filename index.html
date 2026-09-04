@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPTV Max - Thế Giới Giải Trí Không Giới Hạn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #080911;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --primary-gradient: linear-gradient(135deg, #FF2E93 0%, #FF8A00 50%, #7000FF 100%);
+            --accent-blue: #00F0FF;
+            --text-main: #FFFFFF;
+            --text-muted: #A0A5B5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Ambient Background Lights */
+        .glow-effect {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(112, 0, 255, 0.35) 0%, rgba(0,0,0,0) 70%);
+            top: -100px;
+            left: -100px;
+            z-index: -1;
+            filter: blur(50px);
+        }
+
+        .glow-effect-2 {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 46, 147, 0.25) 0%, rgba(0,0,0,0) 70%);
+            top: 200px;
+            right: -150px;
+            z-index: -1;
+            filter: blur(60px);
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 8%;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: var(--primary-gradient);
+            color: #fff;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(255, 46, 147, 0.3);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255, 46, 147, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 4rem 8% 6rem;
+            position: relative;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: var(--accent-blue);
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            line-height: 1.15;
+            max-width: 900px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 span {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Mockup Display */
+        .mockup-container {
+            width: 100%;
+            max-width: 1000px;
+            margin-top: 2rem;
+            position: relative;
+            border-radius: 20px;
+            padding: 10px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+        }
+
+        .mockup-inner {
+            width: 100%;
+            height: 450px;
+            background: #121526;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mockup-text {
+            text-align: center;
+            z-index: 2;
+        }
+
+        .play-btn {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            cursor: pointer;
+            box-shadow: 0 0 30px rgba(255, 46, 147, 0.6);
+            transition: transform 0.3s;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Features */
+        .features {
+            padding: 5rem 8%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: rgba(255, 46, 147, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 5rem 8%;
+            text-align: center;
+        }
+
+        .pricing h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .pricing-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .price-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 3rem 2.5rem;
+            border-radius: 24px;
+            width: 320px;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .price-card.popular {
+            border-color: #FF2E93;
+            background: linear-gradient(180deg, rgba(255,46,147,0.1) 0%, rgba(0,0,0,0) 100%);
+        }
+
+        .price {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin: 1.5rem 0;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .price-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .price-features li {
+            margin-bottom: 0.8rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .price-features li::before {
+            content: "✓ ";
+            color: var(--accent-blue);
+            font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            header { padding: 1.5rem 5%; }
+            .hero { padding: 2rem 5% 4rem; }
+            .mockup-inner { height: 280px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glow-effect"></div>
+    <div class="glow-effect-2"></div>
+
+    <header>
+        <div class="logo">IPTV MAX</div>
+        <a href="#pricing" class="btn-primary">Dùng Thử Nhanh</a>
+    </header>
+
+    <section class="hero">
+        <div class="badge">🔥 Ứng dụng IPTV Thế Hệ Mới</div>
+        <h1>Trải Nghiệm Truyền Hình <span>Chuẩn 4K</span> Không Giật Lag</h1>
+        <p>Thỏa sức xem 20,000+ kênh truyền hình quốc tế, thể loại thể thao đỉnh cao và kho phim 4K cập nhật mỗi ngày trên mọi thiết bị.</p>
+        <a href="#pricing" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">Tải Về & Trải Nghiệm</a>
+
+        <div class="mockup-container">
+            <div class="mockup-inner">
+                <div class="mockup-text">
+                    <div class="play-btn">▶</div>
+                    <p style="font-weight: 600; letter-spacing: 1px;">XEM DEMO GIAO DIỆN MƯỢT MÀ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Tốc Độ Cực Nhanh</h3>
+            <p>Hệ thống máy chủ tối ưu hóa băng thông, truyền tải video mượt mà không delay ngay cả giờ cao điểm.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📺</div>
+            <h3>20,000+ Kênh TV</h3>
+            <p>Đầy đủ các kênh thể thao, phim truyện, thời sự, giải trí trong nước và quốc tế chất lượng HD/4K.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3>Đa Nền Tảng</h3>
+            <p>Tương thích hoàn hảo với Smart TV, Android Box, iOS, Android, PC và các thiết bị Mag/Enigma.</p>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <h2>Bảng Giá Gói Dịch Vụ</h2>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>Gói Trải Nghiệm</h3>
+                <div class="price">99K <span>/ tháng</span></div>
+                <ul class="price-features">
+                    <li>Hơn 10,000 Kênh TV</li>
+                    <li>Kho phim HD cập nhật</li>
+                    <li>Sử dụng 1 Thiết bị</li>
+                    <li>Hỗ trợ 24/7</li>
+                </ul>
+                <a href="#" class="btn-primary" style="background: transparent; border: 1px solid var(--border-color); display: block;">Đăng Ký</a>
+            </div>
+
+            <div class="price-card popular">
+                <div class="badge" style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #FF2E93; color: white;">PHỔ BIẾN NHẤT</div>
+                <h3>Gói VIP Pro</h3>
+                <div class="price">249K <span>/ 3 tháng</span></div>
+                <ul class="price-features">
+                    <li>20,000+ Kênh Premium & 4K</li>
+                    <li>Kho Phim chiếu rạp 4K Vietsub</li>
+                    <li>Sử dụng cùng lúc 3 Thiết bị</li>
+                    <li>Đường truyền ưu tiên chống lag</li>
+                    <li>Hỗ trợ kỹ thuật 1-on-1</li>
+                </ul>
+                <a href="#" class="btn-primary" style="display: block;">Chọn Gói VIP</a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
