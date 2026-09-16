@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXT TV - Tải Ứng Dụng</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <title>NEXT TV - Truyền Hình & Giải Trí Đỉnh Cao</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
         * {
             margin: 0;
@@ -16,23 +15,24 @@
         }
 
         body {
-            background-color: #0b0c10;
+            background-color: #07080b;
             color: #ffffff;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 24px 12px;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* Hiệu ứng ánh sáng nền (Glow Effect) */
+        /* Ambient Light Glows */
         .glow-bg {
-            position: absolute;
+            position: fixed;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(255, 42, 109, 0.25) 0%, rgba(5, 217, 232, 0.15) 50%, rgba(0, 0, 0, 0) 70%);
-            top: 50%;
+            background: radial-gradient(circle, rgba(255, 42, 109, 0.22) 0%, rgba(5, 217, 232, 0.12) 45%, rgba(0, 0, 0, 0) 70%);
+            top: 30%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 0;
@@ -42,41 +42,40 @@
         .container {
             position: relative;
             z-index: 1;
-            width: 90%;
-            max-width: 480px;
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 28px;
-            padding: 40px 28px;
-            text-align: center;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            width: 100%;
+            max-width: 520px;
+            background: rgba(20, 22, 31, 0.65);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 32px;
+            padding: 36px 24px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 42, 109, 0.1);
         }
 
-        /* Thiết kế Logo NEXT TV */
+        /* Header Logo */
         .logo-box {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
-            margin-bottom: 24px;
+            margin-bottom: 12px;
         }
 
         .logo-icon {
             width: 52px;
             height: 52px;
             background: linear-gradient(135deg, #FF2A6D, #9B51E0);
-            border-radius: 14px;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 24px;
-            box-shadow: 0 8px 20px rgba(255, 42, 109, 0.4);
+            box-shadow: 0 8px 24px rgba(255, 42, 109, 0.5);
         }
 
         .logo-text {
-            font-size: 36px;
+            font-size: 34px;
             font-weight: 800;
             letter-spacing: -1px;
         }
@@ -88,24 +87,193 @@
         }
 
         .tagline {
-            font-size: 15px;
+            font-size: 14px;
             color: #a0a5b5;
-            margin-bottom: 36px;
+            text-align: center;
+            margin-bottom: 24px;
             line-height: 1.5;
         }
 
-        /* Danh sách nút tải về */
+        /* Visual Mockup - TV/App Interface Preview */
+        .app-preview {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0.6) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            margin-bottom: 28px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+
+        .mockup-header {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 10px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11px;
+            color: #8a8f9d;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .mockup-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #05D9E8;
+            font-weight: 600;
+        }
+
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #FF2A6D;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #FF2A6D;
+            animation: blink 1.2s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .mockup-body {
+            padding: 16px;
+            background: radial-gradient(circle at top right, rgba(5, 217, 232, 0.15), transparent 60%);
+        }
+
+        .hero-card {
+            background: linear-gradient(135deg, rgba(255, 42, 109, 0.3), rgba(155, 81, 224, 0.3));
+            border-radius: 14px;
+            padding: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: #FF2A6D;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .hero-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .hero-desc {
+            font-size: 12px;
+            color: #d0d5e0;
+        }
+
+        /* Features Grid Section */
+        .section-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #8a8f9d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title i {
+            color: #05D9E8;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 16px;
+            padding: 14px;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(5, 217, 232, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .feature-icon {
+            font-size: 20px;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #05D9E8, #FF2A6D);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .feature-title {
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .feature-desc {
+            font-size: 11px;
+            color: #8a8f9d;
+            line-height: 1.4;
+        }
+
+        /* Channels List Tags */
+        .channels-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 28px;
+        }
+
+        .channel-tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #e0e5f0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .channel-tag i {
+            font-size: 10px;
+            color: #FF2A6D;
+        }
+
+        /* Download Buttons */
         .download-group {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 14px;
+            margin-bottom: 24px;
         }
 
         .btn-download {
             display: flex;
             align-items: center;
             padding: 16px 20px;
-            border-radius: 18px;
+            border-radius: 20px;
             text-decoration: none;
             color: #ffffff;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -114,7 +282,6 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        /* Style riêng cho nút Android Phone */
         .btn-phone {
             background: rgba(255, 255, 255, 0.06);
         }
@@ -123,29 +290,24 @@
             background: rgba(255, 255, 255, 0.12);
             border-color: rgba(5, 217, 232, 0.5);
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(5, 217, 232, 0.2);
+            box-shadow: 0 10px 25px rgba(5, 217, 232, 0.25);
         }
 
-        .btn-phone .btn-icon {
-            color: #05D9E8;
-        }
+        .btn-phone .btn-icon { color: #05D9E8; }
 
-        /* Style riêng cho nút Android TV */
         .btn-tv {
-            background: linear-gradient(135deg, rgba(255, 42, 109, 0.2), rgba(155, 81, 224, 0.2));
-            border-color: rgba(255, 42, 109, 0.3);
+            background: linear-gradient(135deg, rgba(255, 42, 109, 0.25), rgba(155, 81, 224, 0.25));
+            border-color: rgba(255, 42, 109, 0.4);
         }
 
         .btn-tv:hover {
-            background: linear-gradient(135deg, rgba(255, 42, 109, 0.4), rgba(155, 81, 224, 0.4));
-            border-color: rgba(255, 42, 109, 0.7);
+            background: linear-gradient(135deg, rgba(255, 42, 109, 0.45), rgba(155, 81, 224, 0.45));
+            border-color: rgba(255, 42, 109, 0.8);
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(255, 42, 109, 0.3);
+            box-shadow: 0 10px 25px rgba(255, 42, 109, 0.35);
         }
 
-        .btn-tv .btn-icon {
-            color: #FF2A6D;
-        }
+        .btn-tv .btn-icon { color: #FF2A6D; }
 
         .btn-icon {
             font-size: 28px;
@@ -164,7 +326,7 @@
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: #8a8f9d;
+            color: #a0a5b5;
             font-weight: 600;
         }
 
@@ -182,15 +344,82 @@
         }
 
         .btn-download:hover .arrow-icon {
-            transform: translateX(4px);
+            transform: translateX(5px);
             color: #ffffff;
+        }
+
+        /* Zalo Group Section */
+        .zalo-box {
+            background: linear-gradient(135deg, rgba(0, 104, 255, 0.15), rgba(0, 163, 255, 0.05));
+            border: 1px solid rgba(0, 136, 255, 0.3);
+            border-radius: 20px;
+            padding: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .zalo-box:hover {
+            background: linear-gradient(135deg, rgba(0, 104, 255, 0.3), rgba(0, 163, 255, 0.15));
+            border-color: rgba(0, 163, 255, 0.6);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 104, 255, 0.2);
+        }
+
+        .zalo-info {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .zalo-icon {
+            width: 44px;
+            height: 44px;
+            background: #0068FF;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: justify;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 18px;
+            box-shadow: 0 4px 12px rgba(0, 104, 255, 0.4);
+        }
+
+        .zalo-text {
+            text-align: left;
+        }
+
+        .zalo-text strong {
+            display: block;
+            font-size: 14px;
+            color: #ffffff;
+        }
+
+        .zalo-text span {
+            font-size: 12px;
+            color: #a0c4ff;
+        }
+
+        .btn-zalo-join {
+            background: #0068FF;
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 700;
+            white-space: nowrap;
         }
 
         /* Footer */
         .footer {
-            margin-top: 32px;
+            margin-top: 28px;
             font-size: 12px;
             color: #5c606b;
+            text-align: center;
         }
     </style>
 </head>
@@ -199,6 +428,7 @@
     <div class="glow-bg"></div>
 
     <div class="container">
+        <!-- Logo Header -->
         <div class="logo-box">
             <div class="logo-icon">
                 <i class="fa-solid fa-play"></i>
@@ -207,16 +437,77 @@
                 NEXT <span>TV</span>
             </div>
         </div>
+        <p class="tagline">Ứng dụng xem truyền hình, phim điện ảnh và thể thao trực tiếp chất lượng 4K cực mượt.</p>
 
-        <p class="tagline">Trải nghiệm truyền hình và giải trí đỉnh cao chất lượng cao trên mọi thiết bị.</p>
+        <!-- Mockup Giao Diện Ấn Tượng -->
+        <div class="app-preview">
+            <div class="mockup-header">
+                <span>NEXT TV OS 2.0</span>
+                <div class="mockup-status">
+                    <div class="live-dot"></div> TRỰC TIẾP 4K
+                </div>
+            </div>
+            <div class="mockup-body">
+                <div class="hero-card">
+                    <span class="hero-badge"><i class="fa-solid fa-fire"></i> Mới Nhất</span>
+                    <div class="hero-title">Ngoại Hạng Anh & Cúp C1</div>
+                    <div class="hero-desc">Trọn bộ các giải thể thao đỉnh cao, bình luận tiếng Việt.</div>
+                </div>
+            </div>
+        </div>
 
+        <!-- Giới Thiệu Tính Năng Nổi Bật -->
+        <div class="section-title">
+            <i class="fa-solid fa-bolt"></i> Tính Năng Nổi Bật
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-tv"></i></div>
+                <div class="feature-title">500+ Kênh TV</div>
+                <div class="feature-desc">Đầy đủ kênh Trong nước & Quốc tế chất lượng HD/4K.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                <div class="feature-title">Tốc Độ Cao</div>
+                <div class="feature-desc">Tối ưu server riêng, xem mượt không giật lag.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-film"></i></div>
+                <div class="feature-title">Kho Phim 4K</div>
+                <div class="feature-desc">Hàng ngàn phim chiếu rạp, phim bộ cập nhật liên tục.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                <div class="feature-title">Giao Diện TV</div>
+                <div class="feature-desc">Tối ưu hoàn hảo cho Remote Android TV / TV Box.</div>
+            </div>
+        </div>
+
+        <!-- Danh Sách Kênh Nổi Bật -->
+        <div class="section-title">
+            <i class="fa-solid fa-list-check"></i> Kho Kênh Đa Dạng
+        </div>
+        <div class="channels-wrapper">
+            <div class="channel-tag"><i class="fa-solid fa-circle"></i> VTV HD (1-9)</div>
+            <div class="channel-tag"><i class="fa-solid fa-circle"></i> HTV & VTC</div>
+            <div class="channel-tag"><i class="fa-solid fa-circle"></i> K+ Sports</div>
+            <div class="channel-tag"><i class="fa-solid fa-circle"></i> HBO Max</div>
+            <div class="channel-tag"><i class="fa-solid fa-circle"></i> Cinemax</div>
+            <div class="channel-tag"><i class="fa-solid fa-circle"></i> Cartoon Network</div>
+            <div class="channel-tag"><i class="fa-solid fa-circle"></i> Truyền Hình Địa Phương</div>
+        </div>
+
+        <!-- Danh Sách Nút Tải Ứng Dụng -->
+        <div class="section-title">
+            <i class="fa-solid fa-download"></i> Tải Ứng Dụng
+        </div>
         <div class="download-group">
             <a href="#" class="btn-download btn-phone">
                 <div class="btn-icon">
                     <i class="fa-brands fa-android"></i>
                 </div>
                 <div class="btn-text">
-                    <small>Tải APK cho</small>
+                    <small>Tải APK Cho</small>
                     <strong>Điện Thoại Android</strong>
                 </div>
                 <i class="fa-solid fa-chevron-right arrow-icon"></i>
@@ -227,15 +518,29 @@
                     <i class="fa-solid fa-tv"></i>
                 </div>
                 <div class="btn-text">
-                    <small>Phiên bản tối ưu</small>
-                    <strong>Android TV / Box</strong>
+                    <small>Phiên Bản Cho</small>
+                    <strong>Android TV / TV Box</strong>
                 </div>
                 <i class="fa-solid fa-chevron-right arrow-icon"></i>
             </a>
         </div>
 
+        <!-- Nút Tham Gia Nhóm Zalo -->
+        <!-- Thay THAY_LINK_ZALO_CỦA_BẠN_VÀO_ĐÂY bằng link nhóm Zalo thực tế -->
+        <a href="https://zalo.me/g/THAY_LINK_ZALO_CỦA_BẠN_VÀO_ĐÂY" target="_blank" class="zalo-box">
+            <div class="zalo-info">
+                <div class="zalo-icon">Zalo</div>
+                <div class="zalo-text">
+                    <strong>Cộng Đồng NEXT TV</strong>
+                    <span>Hỗ trợ kỹ thuật & Nhận APK mới</span>
+                </div>
+            </div>
+            <div class="btn-zalo-join">Tham gia</div>
+        </a>
+
+        <!-- Footer -->
         <div class="footer">
-            &copy; 2026 NEXT TV. Phiên bản 1.0
+            &copy; 2026 NEXT TV. Tất cả quyền được bảo lưu.
         </div>
     </div>
 
